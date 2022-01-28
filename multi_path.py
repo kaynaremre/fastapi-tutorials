@@ -19,3 +19,5 @@ async def read_user_item(
 async def read_user_item(item_id: str, needy: str):
     item = {"item_id": item_id, "needy": needy} # Needy is neccessary !!!!!
     return item
+
+# http://127.0.0.1:8000/items/foo-item?needy=sooooneedy
