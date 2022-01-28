@@ -38,3 +38,4 @@ async def read_user_me(user_id: str):
 @app.get("users/{user_id}")
 async def read_user(user_id: str):
     return {"user_id": user_id}
+
