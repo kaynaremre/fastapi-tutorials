@@ -13,8 +13,13 @@ async def read_item(skip: int = 0, limit: int = 10):
 # http://127.0.0.1:8000/items/?skip=0&limit=10 -- eg .[1:2]
 
 
-@app.get("/items/{item_id}")
-async def read_item2(item_id: str, q: str | None = None):
-    if q:
-        return {"item_id": item_id, "q": q}  # If q is entered
-    return {"item_id": item_id}              # If q is not entered
+@app.get("/items/{item_id}")                # Default None id, q
+async def read_item2(item_id: str, q: str | None = None, short: bool = False):
+    item = {"item_id": item_id}
+    if q:      # If q is entered
+        item.update({"q": q})
+    if not short:
+        item.update({"BOOOL": "BOOOOOOOLLLLL"})
+    return item           # If q is not entered
+
+# http://127.0.0.1:8000/items/Foo?short=False
