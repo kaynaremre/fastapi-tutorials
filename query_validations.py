@@ -3,7 +3,7 @@ from fastapi import FastAPI, Query
 app = FastAPI()
 
 
-# Queries can be limited
+# Queries can be limited, None s the default parameter you can write whatever you want
 @app.get("/items/")
 async def read_items(q: str | None = Query(None, min_length=2, max_length=50)):
     results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
